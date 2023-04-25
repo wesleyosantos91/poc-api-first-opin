@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "brand": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "companies": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "companyName": {
+                      "type": "string"
+                    },
+                    "cnpjNumber": {
+                      "type": "string"
+                    },
+                    "policies": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "productName": {
+                              "type": "string"
+                            },
+                            "policyId": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "productName",
+                            "policyId"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "companyName",
+                    "cnpjNumber",
+                    "policies"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "companies"
+          ]
+        }
+      },
+      "required": [
+        "brand"
+      ]
+    },
+    "links": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "type": "string"
+        },
+        "first": {
+          "type": "string"
+        },
+        "prev": {
+          "type": "string"
+        },
+        "next": {
+          "type": "string"
+        },
+        "last": {
+          "type": "string"
+        }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "totalRecords": {
+          "type": "integer"
+        },
+        "totalPages": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "totalRecords",
+        "totalPages"
+      ]
+    }
+  },
+  "required": [
+    "data",
+    "links",
+    "meta"
+  ]
+}
